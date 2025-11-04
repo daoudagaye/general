@@ -31,60 +31,43 @@
 </head>
 <body>
     <div id="app">
-        <nav>
-            <a href="/">Home</a>
-            <a href="/sunumbay/politique-confidentialite">Politique de confidentialité</a>
-        </nav>
-        <div id="content"></div>
+        Politique de confidentialité
+
+Dernière mise à jour : [date]
+
+1. Introduction
+
+Merci d’utiliser SUNU MBAY.
+Nous respectons votre vie privée et tenons à être transparents concernant la manière dont vos données sont traitées.
+Cette application ne collecte, ne stocke et ne partage aucune donnée personnelle ou sensible concernant ses utilisateurs.
+
+2. Données collectées
+
+L’application ne collecte aucune information personnelle, ni aucune donnée liée à votre appareil (telles que la localisation, les contacts, les identifiants publicitaires, ou autres).
+
+3. Utilisation des données
+
+Aucune donnée n’est collectée, utilisée ou transmise à des tiers.
+L’application fonctionne localement sur votre appareil sans échange d’informations personnelles avec des serveurs externes.
+
+4. Partage avec des tiers
+
+Nous ne partageons aucune information avec des entreprises, organisations ou particuliers tiers.
+
+5. Sécurité
+
+Puisque aucune donnée n’est collectée, aucune mesure particulière de protection des données personnelles n’est nécessaire.
+Cependant, nous veillons à maintenir l’application exempte de tout code malveillant ou accès non autorisé.
+
+6. Enfants
+
+Notre application est accessible à tous les publics et ne contient aucun contenu inapproprié pour les enfants.
+Elle ne collecte pas d’informations auprès des enfants de moins de 13 ans.
+
+7. Contact
+
+Si vous avez des questions concernant cette politique de confidentialité, vous pouvez nous contacter à l’adresse suivante :
+📧 contact@sunumbayagritech.com
     </div>
-
-    <script>
-        // Simple client-side router
-        function router() {
-            const path = window.location.pathname;
-            const contentDiv = document.getElementById('content');
-            
-            // Clear existing content
-            contentDiv.textContent = '';
-            
-            if (path === '/sunumbay/politique-confidentialite') {
-                const heading = document.createElement('h1');
-                heading.textContent = 'Hello world';
-                contentDiv.appendChild(heading);
-            } else if (path === '/' || path === '/index.html') {
-                const heading = document.createElement('h1');
-                heading.textContent = 'Welcome';
-                const paragraph = document.createElement('p');
-                paragraph.textContent = 'Navigate to ';
-                const link = document.createElement('a');
-                link.href = '/sunumbay/politique-confidentialite';
-                link.textContent = 'Politique de confidentialité';
-                paragraph.appendChild(link);
-                paragraph.appendChild(document.createTextNode(' to see the special message.'));
-                contentDiv.appendChild(heading);
-                contentDiv.appendChild(paragraph);
-            } else {
-                const heading = document.createElement('h1');
-                heading.textContent = '404 - Page Not Found';
-                contentDiv.appendChild(heading);
-            }
-        }
-
-        // Handle navigation clicks
-        document.addEventListener('click', function(e) {
-            if (e.target.tagName === 'A' && e.target.href.startsWith(window.location.origin)) {
-                e.preventDefault();
-                const url = new URL(e.target.href);
-                window.history.pushState({}, '', url.pathname);
-                router();
-            }
-        });
-
-        // Handle browser back/forward buttons
-        window.addEventListener('popstate', router);
-
-        // Initial route
-        router();
-    </script>
 </body>
 </html>
