@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>General App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        #app {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        nav {
+            margin-bottom: 20px;
+            padding: 10px 0;
+            border-bottom: 2px solid #333;
+        }
+        nav a {
+            margin-right: 15px;
+            text-decoration: none;
+            color: #0066cc;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <nav>
+            <a href="/">Home</a>
+            <a href="/sunumbay/politique-confidentialite">Politique de confidentialité</a>
+        </nav>
+        <div id="content"></div>
+    </div>
+
+    <script>
+        // Simple client-side router
+        function router() {
+            const path = window.location.pathname;
+            const contentDiv = document.getElementById('content');
+            
+            if (path === '/sunumbay/politique-confidentialite') {
+                contentDiv.innerHTML = '<h1>Hello world</h1>';
+            } else if (path === '/' || path === '/index.html') {
+                contentDiv.innerHTML = '<h1>Welcome</h1><p>Navigate to <a href="/sunumbay/politique-confidentialite">Politique de confidentialité</a> to see the special message.</p>';
+            } else {
+                contentDiv.innerHTML = '<h1>404 - Page Not Found</h1>';
+            }
+        }
+
+        // Handle navigation clicks
+        document.addEventListener('click', function(e) {
+            if (e.target.tagName === 'A' && e.target.href.startsWith(window.location.origin)) {
+                e.preventDefault();
+                const url = new URL(e.target.href);
+                window.history.pushState({}, '', url.pathname);
+                router();
+            }
+        });
+
+        // Handle browser back/forward buttons
+        window.addEventListener('popstate', router);
+
+        // Initial route
+        router();
+    </script>
+</body>
+</html>
